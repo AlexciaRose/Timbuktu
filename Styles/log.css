@@ -1,0 +1,79 @@
+@font-face {
+    font-family: "Exo";
+    src: url(../Fonts/Exo/Exo-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: "Martel";
+    src: url(../Fonts/Martel/MartelSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: "Open-Sans";
+    src: url(../Fonts/OpenSans/OpenSans-VariableFont_wdth\,wght.ttf);
+}
+
+body{
+    background-color: white;
+}
+
+h2{
+    font-size: 45px;
+    width: 900px;
+    font-family: 'Open-Sans';
+    margin-top: 100px;
+    letter-spacing: 2px;
+    margin-left: 100px;
+    color: black; 
+    position: relative;
+   
+}
+
+.container-one {
+    position: relative;
+    height: max-content;
+    padding-top: 70px;
+  }
+  
+.floating-image {
+    position: absolute;
+    top: 70;
+    left: 90px;
+    width: 900px;
+    height: 750px;
+    z-index: 1;
+  }
+
+@media (max-width:1000px){
+    .heading{
+        font-size: 40px;
+    }
+}
+
+.card{
+    border: none;
+    font-family: 'Open-Sans';
+    margin-bottom: 50px;
+}
+
+.card-title{
+    font-size: 24px;
+    font-weight: bold;
+}
+.card img{
+    border-radius: 0%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover {
+    transform: scale(1.1);
+  }
+
+.card a{
+    text-decoration: none;
+    color: black;
+}
+
+.card a:hover{
+    color: pink;
+}

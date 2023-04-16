@@ -8,6 +8,7 @@
     color: #6b6565;
 }
 
+
 .active{
     color: #B4B4B4 !important;
 }
@@ -21,6 +22,12 @@
     font-size: 30px;
 }
 
-body{
-    background-color: #211F21;
-}
+
+.navbar-toggler-icon {
+    background-color: rgb(255, 255, 255) !important; /* Change the background color to red */
+    border-color: rgb(32, 33, 32); /* Change the border color to green */
+  }
+
+.navbar-brand:hover {
+    color: white !important;
+  }

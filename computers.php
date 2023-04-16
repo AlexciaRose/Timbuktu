@@ -30,13 +30,13 @@
                             <a class="nav-link active" aria-current="page" href="#">ABOUT US</a>
                             </li>
                             <li class="nav-item">
-                            <a class="nav-link" href="catalogue.php">CATALOGUE</a>
+                            <a class="nav-link active" aria-current="page" href="catalogue.php">CATALOGUE</a>
                             </li>
                             <li class="nav-item">
-                            <a class="nav-link" href="#">CUSTOMERS</a>
+                                <a class="nav-link" href="#">CUSTOMERS</a>
                             </li>
                             <li class="nav-item">
-                            <a class="nav-link" href="#">PRICING</a>
+                                <a class="nav-link" href="#">PRICING</a>
                             </li>
                         </ul>
                     </div>
@@ -49,17 +49,6 @@
             </div>
         </nav>
 
-
-                <div class="container-one">
-                    <img src="Images/robotarms.png" class="floating-image" alt="Image">
-                    <h1 class="heading">INNOVATION MADE <span style="color:#FA79DF;">EASY.</span></h1>
-                    <div class="info">
-                        <p>From optimizing your online presence to automating your operations, we are your partner for digital growth.</p>
-                        <a href="#" class="btn" tabindex="-1" role="button">GET STARTED</a> 
-                        <a href="#" class="btn ms-5 btn2" tabindex="-1" role="button">CONTACT US</a>
-                    </div>
-                    
-                </div>
 
     
 

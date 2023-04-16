@@ -1,0 +1,91 @@
+@font-face {
+    font-family: "Exo";
+    src: url(../Fonts/Exo/Exo-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: "Martel";
+    src: url(../Fonts/Martel/MartelSans-Regular.ttf);
+}
+
+body{
+    background-color: #211F21;
+}
+
+.heading{
+    font-size: 100px;
+    text-align: center;
+    width: auto;
+    font-family: 'Exo';
+    font-weight: bold;
+    margin-top: 10px;
+    letter-spacing: 5px;
+    background-clip: text; -webkit-background-clip: text; 
+    color: transparent; 
+    background-image: linear-gradient(to right, #FFFFFF, #A1A1A1);
+    position: relative;
+   
+}
+
+.container-one {
+    position: relative;
+    height: max-content;
+    padding-top: 70px;
+  }
+  
+  .floating-image {
+    position: absolute;
+    top: 70;
+    left: 90px;
+    width: 900px;
+    height: 750px;
+    z-index: 1;
+  }
+
+@media (max-width:1000px){
+    .heading{
+        font-size: 40px;
+    }
+}
+
+.container-one .info{
+    color: #B4B4B4;
+    position: relative;
+    left: 1000px;
+    width: 400px;
+    top: 100px;
+    font-family: 'Martel';
+    font-size: 20px;
+    
+}
+
+.info .btn{
+    background-color: white;
+    font-family: 'Martel';
+    font-weight: bolder;
+    margin-top: 50px;
+    border-radius: 25px;
+    height: 50px;
+    padding-top: 12px;
+    padding-left: auto;
+}
+
+.info .btn2{
+    background-color: rgba(255, 255, 255, 0);
+    font-family: 'Martel';
+    font-weight: bolder;
+    margin-top: 50px;
+    border-radius: 25px;
+    border: 1px solid white;
+    height: 50px;
+    padding-top: 12px;
+    padding-left: auto;
+    color: white;
+}
+
+.info hr {
+    transform: rotate(90deg);
+    border: 1px solid white;
+    margin-top: 150px;
+}
+
