@@ -1,0 +1,26 @@
+@font-face {
+    font-family: "Open-Sans";
+    src: url(../Fonts/OpenSans/OpenSans-VariableFont_wdth\,wght.ttf);
+}
+
+.nav-link{
+    font-size: 16px;
+    color: #6b6565;
+}
+
+.active{
+    color: #B4B4B4 !important;
+}
+.navbar{
+    font-family: 'Open-Sans';
+    font-weight: bold;
+}
+
+.navbar-brand{
+    color: white;
+    font-size: 30px;
+}
+
+body{
+    background-color: #211F21;
+}
