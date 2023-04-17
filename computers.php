@@ -51,6 +51,34 @@
 
 
     
+        <?php
+
+            require 'connection.php';
+            // connect to database
+            $conn = Connect();
+
+            // query to select image path from database
+            $sql = "SELECT image_url FROM products_tbl WHERE productID = 1";
+
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+                // output data of each row
+                while($row = $result->fetch_assoc()) {
+                    // get image path from database
+                    $image_path = $row["image_url"];
+                    
+                    // display image
+                    echo "<img src='$image_path' alt='Product Image'>";
+                }
+            } else {
+                echo "No results found.";
+            }
+
+            // close database connection
+            $conn->close();
+        ?>
+
 
 
 
