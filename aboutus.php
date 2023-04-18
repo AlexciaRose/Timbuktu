@@ -225,7 +225,7 @@
               <a href="mailto:timbuktu.connect@gmail.com" class="text-reset">Send Email</a>
             </p>
             <p>
-              <a href="faq.html" class="text-reset">FAQs</a>
+              <a href="faq.php" class="text-reset">FAQs</a>
             </p>
           </div>
           

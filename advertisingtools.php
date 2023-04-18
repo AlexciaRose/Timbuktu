@@ -70,7 +70,7 @@
         </nav>
 
 
-<div class="vw-100 top-info">
+<div class="vw-100 top-info" style="background-image: url(Images/onliadver.jpg);">
     
 </div>
        
@@ -78,7 +78,8 @@
           <div class="mt-5 mb-5">
             <input type="text" class="form-control" id="prod-search" name="prod-search" placeholder="Search Online Advertising Tools">
             <input type="hidden" name="category" value="online-advertising-tools">
-          </div>
+            <input type="hidden" name="category2" value="">  
+        </div>
         </form>
 
     <div class="row ms-5 ps-5 prod">
@@ -99,7 +100,22 @@
                 $conn = Connect();
                 $sql = "SELECT * FROM products_tbl WHERE category = 'online-advertising-tools'";
 
+                $sql2 = "SELECT userID FROM user_tbl WHERE u_name = ?";
+                $stmt = $conn->prepare($sql2);
+                $stmt->bind_param("s", $username);
+                $stmt->execute();
+                $result2 = $stmt->get_result();
+
                 $result = $conn->query($sql);
+
+                if ($result2->num_rows > 0) {
+                    $row2 = $result2->fetch_assoc();
+                    $user_id = $row2["userID"];
+                
+                    // get the products for the given user ID
+                    $stmt = $conn->prepare($sql);
+                    $stmt->execute();
+                    $result = $stmt->get_result();
 
                 if ($result->num_rows > 0) {
                     // output data of each row
@@ -107,11 +123,10 @@
                         $prod_id = $row["productID"];
                         $prod_name = $row["name"];
                         $prod_price = $row["price"];
-                        $image_path = $row["image_url"];
                         $prod_cat= $row["category"];
-                        $user_id = 301;
-
+                        $image_path = $row["image_url"];
                         
+
                         $productcard = '<div class="card col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 ms-4 mb-3">
                                             <img src="Images/'. $prod_cat .'/' . $image_path . '" class="card-img-top" alt="...">
                                             <div class="card-body">
@@ -119,9 +134,11 @@
                                                     <h5 class="card-title">' . $prod_name . '</h5>
                                                 </a> 
                                                 <p class="card-text"> <strong>$' . $prod_price . '</strong></p>
-                                                <a href="#" class="btn btn-light">Add to Cart</a>
-                                                <a href="cart.php?user_id=<?php echo $user_id; ?>" class="btn2 btn btn-light">Buy Now</a>
-                                                </div>
+                                                <a href="http://localhost/Timbuktu/add.php?prod_id='.$prod_id.'" class="btn btn-light">Add to Cart</a>
+                                                
+                                                
+
+                                            </div>
                                         </div>';
                                         
                         echo $productcard;
@@ -129,8 +146,10 @@
                 } else {
                     echo "No results found.";
                 }
+            }
 
                 // close database connection
+                $stmt->close();
                 $conn->close();
              ?>
                 

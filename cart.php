@@ -110,7 +110,7 @@ if(isset($_SESSION["username"]) && !empty($_SESSION["username"])) {
         }
 
         
-        $sql = "SELECT products_tbl.name, products_tbl.price, products_tbl.image_url, products_tbl.image_url, cart_tbl.quantity
+        $sql = "SELECT products_tbl.name, products_tbl.price, products_tbl.image_url, products_tbl.image_url, cart_tbl.quantity, products_tbl.category
                 FROM cart_tbl
                 JOIN products_tbl ON cart_tbl.productID = products_tbl.productID
                 WHERE cart_tbl.userID = " . $user_id;
@@ -122,7 +122,7 @@ if(isset($_SESSION["username"]) && !empty($_SESSION["username"])) {
             // output data of each row
             while($row = $result->fetch_assoc()) {
                 
-               
+                $prod_cat= $row["category"];
                 $quantity = $row["quantity"];
                 $prod_name = $row["name"];
                 $prod_price = $row["price"];
@@ -133,7 +133,7 @@ if(isset($_SESSION["username"]) && !empty($_SESSION["username"])) {
                 $productcart = '<div class="card mb-3" style="max-width: 680px;">
                                     <div class="row g-0">
                                         <div class="col-md-4">
-                                            <img src="Images/' . $image_path . '" class="img-fluid" alt="...">
+                                         <img src="Images/'. $prod_cat .'/' . $image_path . '" class="card-img-top" alt="...">
                                         </div>
                                         <div class="col-md-8">
                                             <div class="card-body position-relative">
