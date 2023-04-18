@@ -84,7 +84,7 @@
             <div class="card mt-3 ms-5 border-0" style="width: 35rem;">
                 <img src="Images/homelog.jpeg" class="card-img-top" alt="..." style="height: 300px;">
                 <div class="card-body ps-0">
-                    <a href=""><h5 class="card-title mt-3">Smart Home Devices</h5></a>
+                    <a href="smartdevices.php"><h5 class="card-title mt-3">Smart Home Devices</h5></a>
                 </div>
             </div>
         </div>
@@ -94,7 +94,7 @@
             <div class="card mt-3 border-0 me-5" style="width: 35rem;">
                 <img src="Images/digilog.jpg" class="card-img-top" alt="..." style="height: 300px;">
                 <div class="card-body ps-0">
-                    <a href=""><h5 class="card-title mt-3">Digital Streaming Services</h5></a>
+                    <a href="digitalservices.php"><h5 class="card-title mt-3">Digital Streaming Services</h5></a>
                 </div>
             </div>
         </div>
@@ -102,7 +102,7 @@
             <div class="card mt-3 ms-5 border-0" style="width: 35rem;">
                 <img src="Images/artilog.png" class="card-img-top" alt="..." style="height: 300px;">
                 <div class="card-body ps-0">
-                    <a href=""><h5 class="card-title mt-3">Artificial Intelligence Solutions</h5></a>
+                    <a href="aisolutions.php"><h5 class="card-title mt-3">Artificial Intelligence Solutions</h5></a>
                 </div>
             </div>
         </div>
