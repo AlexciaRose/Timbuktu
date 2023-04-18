@@ -1,3 +1,17 @@
+<?php
+session_start();
+
+
+if(isset($_SESSION["username"]) && !empty($_SESSION["username"])) { 
+  
+  $username = $_SESSION["username"]; 
+
+}else{
+  header("Location: index.php");
+  exit();  
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,9 +32,9 @@
 </head>
 <body>
          <!-- NavBar -->    
-         <nav class="navbar navbar-expand-lg bg-dark fixed-top">
+         <nav class="navbar navbar-expand-lg bg-dark">
             <div class="container-fluid me-5">
-                <a class="navbar-brand ms-5" href="#"><span style="color:#FA79DF;">TIM</span>BUKTU</a>
+                <a class="navbar-brand ms-5" href="index.php"><span style="color:#FA79DF;">TIM</span>BUKTU</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
@@ -28,19 +42,13 @@
                     <div class="container-fluid">
                         <ul class="navbar-nav mb-2 mb-lg-0 w-100 ps-5">
                             <li class="nav-item">
-                            <a class="nav-link" href="#">About Us</a>
+                            <a class="nav-link" href="aboutus.php">About Us</a>
                             </li>
                             <li class="nav-item">
                             <a class="nav-link" href="catalogue.php">Catalogue</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Customers</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Pricing</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Contact Us</a>
+                                <a class="nav-link" href="contact.php">Contact Us</a>
                             </li>
                         </ul>
                     </div>
@@ -54,8 +62,14 @@
                         <span>
                         <i class="bi bi-cart me-4" style="color:white; font-size: 1.5rem;"></i>
                         </span>
-                        <span>
-                       <a href="login.php"><i title="Log In/Create Account" class="bi bi-person-fill me-5" style="color:white; font-size: 1.5rem;"></i></a> 
+                        <span class="dropdown">
+                            <a class="nav-link profile" data-bs-toggle="dropdown"><i class="bi bi-person-fill me-5" style="color:white; font-size: 1.5rem;"></i></a>
+                                <ul class="dropdown-menu">
+                                <li>Hi,  <?php echo $username; ?></li>
+                                <li><a class="dropdown-item" href="logout.php"> Logout</a></li>
+                                <li><a class="dropdown-item" href="modify.php"> Edit Account </a></li>
+                                <li><a class="dropdown-item" href="delete.php"> Delete Account </a></li>
+                                </ul>
                         </span>
                     </div>
 
@@ -75,15 +89,28 @@
             Cart
            </h2> 
 
-           <?php
+<?php
+
     require 'connection.php';
 
      
-        $user_id = 301;
-
-        // connect to database
+       // connect to database
         $conn = Connect();
-        $sql = "SELECT products_tbl.name, products_tbl.price, products_tbl.image_url
+        $sql2 = "SELECT userID FROM user_tbl WHERE u_name = ?";
+        $stmt = $conn->prepare($sql2);
+        $stmt->bind_param("s", $username);
+        $stmt->execute();
+        $result2 = $stmt->get_result();
+
+
+        if ($result2->num_rows > 0) {
+            $row2 = $result2->fetch_assoc();
+            $user_id = $row2["userID"];
+        
+        }
+
+        
+        $sql = "SELECT products_tbl.name, products_tbl.price, products_tbl.image_url, products_tbl.image_url, cart_tbl.quantity
                 FROM cart_tbl
                 JOIN products_tbl ON cart_tbl.productID = products_tbl.productID
                 WHERE cart_tbl.userID = " . $user_id;
@@ -96,10 +123,12 @@
             while($row = $result->fetch_assoc()) {
                 
                
-
+                $quantity = $row["quantity"];
                 $prod_name = $row["name"];
                 $prod_price = $row["price"];
                 $image_path = $row["image_url"];
+
+                $total = $quantity * $prod_price;
 
                 $productcart = '<div class="card mb-3" style="max-width: 680px;">
                                     <div class="row g-0">
@@ -120,7 +149,7 @@
                                 ';
 
                 echo $productcart;
-                $total_price += $prod_price;
+                $total_price += $total;
             }
         } else {
             echo "No results found.";

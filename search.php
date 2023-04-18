@@ -1,3 +1,19 @@
+
+<?php
+session_start();
+
+
+if(isset($_SESSION["username"]) && !empty($_SESSION["username"])) { 
+  
+  $username = $_SESSION["username"]; 
+
+}else{
+  header("Location: index.php");
+  exit();  
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +44,7 @@
                     <div class="container-fluid">
                         <ul class="navbar-nav mb-2 mb-lg-0 w-100 ps-5">
                             <li class="nav-item">
-                            <a class="nav-link" href="#">About Us</a>
+                            <a class="nav-link" href="aboutus.php">About Us</a>
                             </li>
                             <li class="nav-item">
                             <a class="nav-link" href="catalogue.php">Catalogue</a>
@@ -67,7 +83,7 @@
         </nav>
 
 
-<div class="vw-100 top-info">
+<div class="vw-100 top-info" style="background-image: url(Images/aiGif.gif);">
     
 </div>
        
@@ -81,9 +97,8 @@
             <div class=" row mb-5">
 
            
-            <?php include 'modal-product.php'; ?>
-
-                <?php
+            
+            <?php
 
                 require 'connection.php';
 
@@ -105,6 +120,9 @@
                     $sql .= " AND category = '$category2'";
                 } elseif (!empty($category) && !empty($category2)) {
                     $sql .= " AND (category = '$category' OR category = '$category2')";
+                } elseif (empty($category) && empty($category2)) {
+                    $sql .= " AND (category = 'Computers' OR category = 'Accessories' OR category = 'smart-home-devices' OR category = 'artificial-intelligence-solutions' OR category = 'digital-streaming-services')";
+
                 }
 
 
@@ -112,27 +130,42 @@
                 // Execute the SQL query
                 $result = mysqli_query($conn, $sql);
 
+                $sql2 = "SELECT userID FROM user_tbl WHERE u_name = ?";
+                $stmt = $conn->prepare($sql2);
+                $stmt->bind_param("s", $username);
+                $stmt->execute();
+                $result2 = $stmt->get_result();
+                
+                $result = $conn->query($sql);
+
+                 if ($result2->num_rows > 0) {
+                    $row2 = $result2->fetch_assoc();
+                    $user_id = $row2["userID"];
+                
+                }
+
                 // Display the search results
                 if (mysqli_num_rows($result) > 0) {
                     $heading = '<h2 class="mb-5"> <span style="font-size:25px; font-weight:lighter; color:pink;">Found What You Were Looking For?</span> <br> '.$search.' </span></h2>';
                     echo $heading;
                     while ($row = mysqli_fetch_assoc($result)) {
-                        // Display the product information
+                        
+                        $prod_id = $row["productID"];
                         $prod_name = $row["name"];
                         $prod_price = $row["price"];
+                        $prod_cat= $row["category"];
                         $image_path = $row["image_url"];
 
 
                         $productcard = '<div class="card col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 ms-4 mb-3">
-                                            <img src="Images/' . $image_path . '" class="card-img-top" alt="...">
+                                            <img src="Images/'. $prod_cat .'/' . $image_path . '" class="card-img-top" alt="...">
                                             <div class="card-body">
-                                                <a class="" href="#" style="text-decoration:none;" data-bs-toggle="modal" data-bs-target="#productModal">
+                                                <a class="" href="#" style="text-decoration:none;">
                                                     <h5 class="card-title">' . $prod_name . '</h5>
                                                 </a> 
-                                            <p class="card-text"> <strong>$' . $prod_price . '</strong></p>
-                                                <a href="#" class="btn btn-light">Add to Cart</a>
-                                                <a href="#" class="btn2 btn btn-light">Buy Now</a>
-                                            </div>
+                                                <p class="card-text"> <strong>$' . $prod_price . '</strong></p>
+                                                <a href="http://localhost/Timbuktu/add.php?prod_id='.$prod_id.'" class="btn btn-light">Add to Cart</a>
+                                        </div>
                                         </div>';
 
                     

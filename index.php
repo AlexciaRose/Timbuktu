@@ -37,16 +37,10 @@ setcookie("username", $username, time() + 3600, "/");?>
                     <div class="container-fluid">
                         <ul class="navbar-nav mb-2 mb-lg-0 w-100 ps-5">
                             <li class="nav-item">
-                            <a class="nav-link" href="#">About Us</a>
+                            <a class="nav-link" href="aboutus.php">About Us</a>
                             </li>
                             <li class="nav-item">
                             <a class="nav-link" href="catalogue.php">Catalogue</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Customers</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Pricing</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="contact.php">Contact Us</a>
@@ -80,6 +74,124 @@ setcookie("username", $username, time() + 3600, "/");?>
 
             </div>
         </nav>
+
+        <div class="container-one mt-5">
+                    <img src="Images/robotarms.png" class="floating-image" alt="Image">
+                    <h1 class="heading">INNOVATION MADE <span style="color:#FA79DF;">EASY.</span></h1>
+                    <div class="info">
+                        <p>From optimizing your online presence to automating your operations, we are your partner for digital growth.</p>
+                        <a href="catalogue.php" class="btn" tabindex="-1" role="button">GET STARTED</a> 
+                        <a href="contact.php" class="btn ms-5 btn2" tabindex="-1" role="button">CONTACT US</a>
+                    </div>
+                    
+                </div>
+
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<div class="container mb-4">
+      <div class="row">
+        <div class="col-md-6 text">
+          <h3 style="color:white;" >E-COMMERCE</h3>
+          <p style="color:white;"> Timbuktu.com's e-commerce solutions enable businesses to set up and manage online stores with ease. Their cloud-based platform offers 
+            a range of features, including secure payment gateways, inventory management, and order fulfillment. Their e-commerce platform is designed 
+            to drive sales and maximize customer satisfaction. </p>
+          <a href="catalogue.php">
+          <button class="btn btn-outline-light btn-lg" style="color:white;">DO MORE</button>
+        </a>
+        </div>
+        <div class="col-md-6">
+            
+          &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<img src="Images\Shopcartabtus.jpg" alt="" height="350" width="550">
+
+        </div>
+      </div>
+    </div>
+
+
+<br> <br> <br>
+    <div class="container mb-4">
+      <div class="row">
+      <div class="col-md-6">
+            
+            <img src="Images\CCabt.jpg" alt="" height="350" width="550">
+  
+          </div>
+
+
+        <div class="col-md-6 text">
+          <h3 style="color:white;">CLOUD COMPUTING</h3>
+          <p style="color:white;"> Timbuktu.com offers cloud computing services that enable businesses to store, access and manage their data and applications easily and 
+            securely. The cloud computing platform is built with cutting-edge technologies, providing businesses with high performance, 
+            reliability, and scalability. </p>
+          <a href="catalogue.php">
+          <button class="btn btn-outline-light btn-lg" style="color:white;">DO MORE</button>
+        </a>
+        </div>
+        
+      </div>
+    </div>
+
+
+<br><br>
+<div class="container mb-4">
+      <div class="row">
+        <div class="col-md-6 text">
+          <h3 style="color:white;">AI TECHNOLOGY</h3>
+          <p style="color:white;"> Timbuktu.com leverages AI to deliver targeted advertising solutions that enhance user engagement and provide personalized experiences. 
+            Their AI technology enables businesses to optimize their ad campaigns and stay ahead of the competition in the digital landscape. </p>
+          <a href="catalogue.php">
+          <button class="btn btn-outline-light btn-lg" style="color:white;">DO MORE</button>
+        </a>
+        </div>
+        <div class="col-md-6">
+            
+          &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<img src="Images\aiGIF.gif" alt="" height="350" width="550">
+
+        </div>
+      </div>
+    </div>
+
+<br> <br> <br>
+    <div class="container mb-4">
+      <div class="row">
+      <div class="col-md-6">
+            
+            <img src="Images\digimar.jpg" alt="" height="350" width="550">
+  
+          </div>
+        <div class="col-md-6 text">
+          <h3 style="color:white;">DIGITAL STREAMING</h3>
+          <p style="color:white;"> Timbuktu.com's digital streaming service offers an extensive collection of movies, TV shows, 
+            and music from around the world. Their streaming platform is built on the latest technologies, 
+            delivering high-quality content with seamless streaming experience for users on any device. </p>
+          <a href="catalogue.php">
+          <button class="btn btn-outline-light btn-lg" style="color:white;">DO MORE</button>
+        </a>
+        </div>
+        
+      </div>
+    </div>
+<br><br>
+    <div class="container mb-4">
+      <div class="row">
+        <div class="col-md-6 text">
+          <h3 style="color:white;">ONLINE ADVERTISING</h3>
+          <p style="color:white;"> Timbuktu.com's online advertising solutions leverage advanced AI and machine learning technologies to deliver 
+            targeted ads that maximize user engagement and conversions. Their online advertising platform offers flexible 
+            pricing plans and real-time performance analytics, enabling businesses to optimize their ad campaigns and maximize ROI. </p>
+          <a href="catalogue.php">
+            <button class="btn btn-outline-light btn-lg" style="color:white;">DO MORE</button>
+        </a>
+        </div>
+        <div class="col-md-6">
+            
+          &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<img src="Images\onliadver.jpg" alt="" height="350" width="550">
+
+        </div>
+      </div>
+    </div>
+
+
+
         <?php
 }
 
@@ -95,19 +207,16 @@ else{?>
                     <div class="container-fluid">
                         <ul class="navbar-nav mb-2 mb-lg-0 w-100 ps-5">
                             <li class="nav-item">
-                            <a class="nav-link" href="login.php">About Us</a>
+                               <a class="nav-link" href="login.php">Home</a>
                             </li>
                             <li class="nav-item">
-                            <a class="nav-link" href="login.php">Catalogue</a>
+                              <a class="nav-link" href="login.php">About Us</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="login.php">Customers</a>
+                               <a class="nav-link" href="login.php">Catalogue</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="login.php">Pricing</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="login.php">Contact Us</a>
+                                <a class="nav-link" href="contact.php">Contact Us</a>
                             </li>
                         </ul>
                     </div>
@@ -126,16 +235,15 @@ else{?>
 
             </div>
         </nav>
-        <?php
-}?>
- 
 
-                <div class="container-one mt-5">
+
+    
+        <div class="container-one mt-5">
                     <img src="Images/robotarms.png" class="floating-image" alt="Image">
                     <h1 class="heading">INNOVATION MADE <span style="color:#FA79DF;">EASY.</span></h1>
                     <div class="info">
                         <p>From optimizing your online presence to automating your operations, we are your partner for digital growth.</p>
-                        <a href="#" class="btn" tabindex="-1" role="button">GET STARTED</a> 
+                        <a href="catalogue.php" class="btn" tabindex="-1" role="button">GET STARTED</a> 
                         <a href="contact.php" class="btn ms-5 btn2" tabindex="-1" role="button">CONTACT US</a>
                     </div>
                     
@@ -184,9 +292,6 @@ else{?>
         
       </div>
     </div>
-
-
-
 
 
 <br><br>
@@ -251,6 +356,14 @@ else{?>
     </div>
 
 
+
+
+
+
+
+        <?php
+}?>
+ 
 
 
 

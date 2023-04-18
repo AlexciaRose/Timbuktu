@@ -20,7 +20,6 @@ body{
 }
 
 .top-info{
-    background-image: url(../Images/complog.png);
     background-size: cover;
     min-height: 500px;
 }

@@ -64,16 +64,10 @@ $conn->close();
                     <div class="container-fluid">
                         <ul class="navbar-nav mb-2 mb-lg-0 w-100 ps-5">
                             <li class="nav-item">
-                            <a class="nav-link" href="#">About Us</a>
+                            <a class="nav-link" href="aboutus.php">About Us</a>
                             </li>
                             <li class="nav-item">
                             <a class="nav-link" href="catalogue.php">Catalogue</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Customers</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Pricing</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="contact.php">Contact Us</a>
@@ -91,7 +85,7 @@ $conn->close();
                         <i class="bi bi-cart me-4" style="color:white; font-size: 1.5rem;"></i>
                         </span>
                         <span class="dropdown">
-                            <a class="nav-link profile" href=""# data-bs-toggle="dropdown"><i class="bi bi-person-fill me-5" style="color:white; font-size: 1.5rem;"></i></a>
+                            <a class="nav-link profile" data-bs-toggle="dropdown"><i class="bi bi-person-fill me-5" style="color:white; font-size: 1.5rem;"></i></a>
                                 <ul class="dropdown-menu">
                                 <li>Hi,  <?php echo $username; ?></li>
                                 <li><a class="dropdown-item" href="logout.php"> Logout</a></li>
