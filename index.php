@@ -27,7 +27,7 @@ if(isset($_SESSION["username"]) && !empty($_SESSION["username"])) { $username = 
 setcookie("username", $username, time() + 3600, "/");?>
 
          <!-- NavBar -->    
-         <nav class="navbar navbar-expand-lg fixed-top">
+         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid me-5">
                 <a class="navbar-brand ms-5" href="#"><span style="color:#FA79DF;">TIM</span>BUKTU</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -63,8 +63,14 @@ setcookie("username", $username, time() + 3600, "/");?>
                         <span>
                         <i class="bi bi-cart me-4" style="color:white; font-size: 1.5rem;"></i>
                         </span>
-                        <span>
-                       <a href="login.php"><i title="Log In/Create Account" class="bi bi-person-fill me-5" style="color:white; font-size: 1.5rem;"></i></a> 
+                        <span class="dropdown">
+                            <a class="nav-link" href="login.php" data-bs-toggle="dropdown"><i class="bi bi-person-fill me-5" style="color:white; font-size: 1.5rem;"></i></a>
+                                <ul class="dropdown-menu">
+                                <li>Hi,  <?php echo $username; ?></li>
+                                <li><a class="dropdown-item" href="logout.php"> Logout</a></li>
+                                <li><a class="dropdown-item" href="#"> Edit Account </a></li>
+                                <li><a class="dropdown-item" href="#"> Delete Account </a></li>
+                                </ul>
                         </span>
                     </div>
 
@@ -79,7 +85,7 @@ setcookie("username", $username, time() + 3600, "/");?>
 
 else{?>
 
-<nav class="navbar navbar-expand-lg fixed-top">
+<nav class="navbar navbar-expand-lg">
             <div class="container-fluid me-5">
                 <a class="navbar-brand ms-5" href="#"><span style="color:#FA79DF;">TIM</span>BUKTU</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -108,9 +114,6 @@ else{?>
                
                     <div class="d-flex align-items-center">
                         <span class="me-4">                          
-                        </span>
-                        <span>
-                        <i class="bi bi-cart me-4" style="color:white; font-size: 1.5rem;"></i>
                         </span>
                         <span>
                        <a href="login.php"><i title="Log In/Create Account" class="bi bi-person-fill me-5" style="color:white; font-size: 1.5rem;"></i></a> 
