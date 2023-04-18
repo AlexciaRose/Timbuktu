@@ -29,7 +29,7 @@ setcookie("username", $username, time() + 3600, "/");?>
          <!-- NavBar -->    
          <nav class="navbar navbar-expand-lg">
             <div class="container-fluid me-5">
-                <a class="navbar-brand ms-5" href="#"><span style="color:#FA79DF;">TIM</span>BUKTU</a>
+                <a class="navbar-brand ms-5" href="index.php"><span style="color:#FA79DF;">TIM</span>BUKTU</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
@@ -49,7 +49,7 @@ setcookie("username", $username, time() + 3600, "/");?>
                                 <a class="nav-link" href="#">Pricing</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Contact Us</a>
+                                <a class="nav-link" href="contact.php">Contact Us</a>
                             </li>
                         </ul>
                     </div>
@@ -64,12 +64,12 @@ setcookie("username", $username, time() + 3600, "/");?>
                         <i class="bi bi-cart me-4" style="color:white; font-size: 1.5rem;"></i>
                         </span>
                         <span class="dropdown">
-                            <a class="nav-link" href="login.php" data-bs-toggle="dropdown"><i class="bi bi-person-fill me-5" style="color:white; font-size: 1.5rem;"></i></a>
+                            <a class="nav-link profile" data-bs-toggle="dropdown"><i class="bi bi-person-fill me-5" style="color:white; font-size: 1.5rem;"></i></a>
                                 <ul class="dropdown-menu">
                                 <li>Hi,  <?php echo $username; ?></li>
                                 <li><a class="dropdown-item" href="logout.php"> Logout</a></li>
-                                <li><a class="dropdown-item" href="#"> Edit Account </a></li>
-                                <li><a class="dropdown-item" href="#"> Delete Account </a></li>
+                                <li><a class="dropdown-item" href="modify.php"> Edit Account </a></li>
+                                <li><a class="dropdown-item" href="delete.php"> Delete Account </a></li>
                                 </ul>
                         </span>
                     </div>
@@ -136,7 +136,7 @@ else{?>
                     <div class="info">
                         <p>From optimizing your online presence to automating your operations, we are your partner for digital growth.</p>
                         <a href="#" class="btn" tabindex="-1" role="button">GET STARTED</a> 
-                        <a href="#" class="btn ms-5 btn2" tabindex="-1" role="button">CONTACT US</a>
+                        <a href="contact.php" class="btn ms-5 btn2" tabindex="-1" role="button">CONTACT US</a>
                     </div>
                     
                 </div>

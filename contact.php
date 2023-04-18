@@ -1,45 +1,10 @@
-<?php
-session_start();
-require 'connection.php';
-$conn = Connect();
-
-
-if(isset($_SESSION["username"]) && !empty($_SESSION["username"]) && $_SERVER["REQUEST_METHOD"] == "POST") 
-{
- $username = $_SESSION["username"];
-  
-
-
-// delete user account
-$sql = "DELETE FROM user_tbl WHERE u_name = ?";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("s", $username);
-
-if ($stmt->execute() === TRUE) {
-  
-  session_unset();
-  session_destroy();
-  header("Location: index.php");
-  exit();
-} else {
-  echo "Error deleting account: " . $conn->error;
-}
-
-
-$stmt->close();
-$conn->close();
-
-}
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Timbuktu | Delete Account</title>
+
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
@@ -49,6 +14,8 @@ $conn->close();
         echo '<link rel="stylesheet" href="Styles/nav.css">';
         echo '<link rel="stylesheet" href="Styles/forms.css">';
   ?>
+
+    <title>Timbuktu | Contact Us</title>
 </head>
 <body>
 
@@ -76,7 +43,7 @@ $conn->close();
                                 <a class="nav-link" href="#">Pricing</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="contact.php">Contact Us</a>
+                                <a class="nav-link active" href="contact.php">Contact Us</a>
                             </li>
                         </ul>
                     </div>
@@ -107,20 +74,32 @@ $conn->close();
 
             </div>
         </nav>
+    
+
+<div class="head">
+                  <h1>Contact Us</h1>
+              </div>  
+                
+      <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" autocomplete="off">
+          <div class="row oneform" id="contact-form">
+              <div class="form-floating mb-3">
+                  <input type="email" class="form-control" name="useremail" id="useremail" placeholder="name@example.com">
+                  <label for="useremail">Email</label>
+              </div>
+              <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="subject" name="subject" placeholder="Password">
+                  <label for="message">Subject</label>
+              </div>
+              <div class="form-floating mb-3">
+                  <textarea class="form-control" id="message" name="message" placeholder="Password">
+                    </textarea>
+                  <label for="message">Message</label>
+              </div>
+              <input type="submit" tabindex="-1" role="button" class="btn" tabindex="-1" value="Send Message">
+          </div>
+
+        </form>
 
 
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-
-        <div class="head2">
-                <h3>Are you sure you want to go?</h3>
-            </div>  
-            <div class="delete">
-            <input type="submit" role="button" class="btn2" tabindex="-1" value="Yes">
-            <a href="index.php">No</a>
-            </div>
-
-</form>
 </body>
 </html>
-
-

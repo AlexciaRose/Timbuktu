@@ -1,3 +1,8 @@
+<?php
+session_start();
+$username = $_SESSION["username"];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +23,7 @@
 </head>
 <body>
         <!-- NavBar -->    
-        <nav class="navbar navbar-expand-lg bg-dark fixed-top">
+        <nav class="navbar navbar-expand-lg bg-dark">
             <div class="container-fluid me-5">
                 <a class="navbar-brand ms-5" href="index.php"><span style="color:#FA79DF;">TIM</span>BUKTU</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,7 +36,7 @@
                             <a class="nav-link" href="#">About Us</a>
                             </li>
                             <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="catalogue.php">Catalogue</a>
+                            <a class="nav-link" href="catalogue.php">Catalogue</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Customers</a>
@@ -40,7 +45,7 @@
                                 <a class="nav-link" href="#">Pricing</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Contact Us</a>
+                                <a class="nav-link" href="contact.php">Contact Us</a>
                             </li>
                         </ul>
                     </div>
@@ -52,25 +57,28 @@
                             </a>                           
                         </span>
                         <span>
-                        <a href="cart.php"><i title="Check Cart" class="bi bi-cart me-4" style="color:white; font-size: 1.5rem;"></i></a>
-                    
+                        <i class="bi bi-cart me-4" style="color:white; font-size: 1.5rem;"></i>
                         </span>
-                        <span>
-                       <a href="login.php"><i title="Log In/Create Account" class="bi bi-person-fill me-5" style="color:white; font-size: 1.5rem;"></i></a> 
+                        <span class="dropdown">
+                            <a class="nav-link profile" href=""# data-bs-toggle="dropdown"><i class="bi bi-person-fill me-5" style="color:white; font-size: 1.5rem;"></i></a>
+                                <ul class="dropdown-menu">
+                                <li>Hi,  <?php echo $username; ?></li>
+                                <li><a class="dropdown-item" href="logout.php"> Logout</a></li>
+                                <li><a class="dropdown-item" href="modify.php"> Edit Account </a></li>
+                                <li><a class="dropdown-item" href="delete.php"> Delete Account </a></li>
+                                </ul>
                         </span>
                     </div>
 
                 </div> 
-
-                <?php include 'modal-search.php'; ?>
                 
-
+                <?php include 'modal-search.php'; ?>
 
             </div>
         </nav>
 
 
-<div class="vw-100 top-info">
+<div class="w-100 top-info">
     
 </div>
        
@@ -120,7 +128,8 @@
                                                 </a> 
                                                 <p class="card-text"> <strong>$' . $prod_price . '</strong></p>
                                                 <a href="#" class="btn btn-light">Add to Cart</a>
-                                                <a href="cart.php?user_id=<?php echo "$user_id"?>" class="btn2 btn btn-light">Buy Now</a>
+                                                <a href="cart.php?user_id=<?php echo $user_id; ?>" class="btn2 btn btn-light">Buy Now</a>
+
                                             </div>
                                         </div>';
                                         
