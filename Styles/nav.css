@@ -42,7 +42,7 @@
 	.navbar .nav-item .dropdown-menu{ 
         display: none; 
     }
-	.navbar:hover .dropdown-menu{
+	.profile:hover .dropdown-menu{
          display: block;
          }
 	.navbar .nav-item .dropdown-menu{ 

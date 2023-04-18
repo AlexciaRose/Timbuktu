@@ -1,3 +1,8 @@
+<?php
+session_start();
+$username = $_SESSION["username"];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +23,7 @@
 </head>
 <body>
         <!-- NavBar -->    
-        <nav class="navbar navbar-expand-lg bg-dark fixed-top">
+        <nav class="navbar navbar-expand-lg bg-dark">
             <div class="container-fluid me-5">
                 <a class="navbar-brand ms-5" href="index.php"><span style="color:#FA79DF;">TIM</span>BUKTU</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,7 +36,7 @@
                             <a class="nav-link" href="#">About Us</a>
                             </li>
                             <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="catalogue.php">Catalogue</a>
+                            <a class="nav-link" href="catalogue.php">Catalogue</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Customers</a>
@@ -40,7 +45,7 @@
                                 <a class="nav-link" href="#">Pricing</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Contact Us</a>
+                                <a class="nav-link" href="contact.php">Contact Us</a>
                             </li>
                         </ul>
                     </div>
@@ -52,25 +57,28 @@
                             </a>                           
                         </span>
                         <span>
-                        <a href="cart.php"><i title="Check Cart" class="bi bi-cart me-4" style="color:white; font-size: 1.5rem;"></i></a>
-                    
+                        <i class="bi bi-cart me-4" style="color:white; font-size: 1.5rem;"></i>
                         </span>
-                        <span>
-                       <a href="login.php"><i title="Log In/Create Account" class="bi bi-person-fill me-5" style="color:white; font-size: 1.5rem;"></i></a> 
+                        <span class="dropdown">
+                            <a class="nav-link profile" href=""# data-bs-toggle="dropdown"><i class="bi bi-person-fill me-5" style="color:white; font-size: 1.5rem;"></i></a>
+                                <ul class="dropdown-menu">
+                                <li>Hi,  <?php echo $username; ?></li>
+                                <li><a class="dropdown-item" href="logout.php"> Logout</a></li>
+                                <li><a class="dropdown-item" href="modify.php"> Edit Account </a></li>
+                                <li><a class="dropdown-item" href="delete.php"> Delete Account </a></li>
+                                </ul>
                         </span>
                     </div>
 
                 </div> 
-
-                <?php include 'modal-search.php'; ?>
                 
-
+                <?php include 'modal-search.php'; ?>
 
             </div>
         </nav>
 
 
-<div class="vw-100 top-info">
+<div class="w-100 top-info">
     
 </div>
        
@@ -120,7 +128,8 @@
                                                 </a> 
                                                 <p class="card-text"> <strong>$' . $prod_price . '</strong></p>
                                                 <a href="#" class="btn btn-light">Add to Cart</a>
-                                                <a href="cart.php?user_id=<?php echo "$user_id"?>" class="btn2 btn btn-light">Buy Now</a>
+                                                <a href="cart.php?user_id=<?php echo $user_id; ?>" class="btn2 btn btn-light">Buy Now</a>
+
                                             </div>
                                         </div>';
                                         
@@ -154,4 +163,84 @@
 </script>
 
 </body>
+
+<footer class="text-center text-lg-start bg-light text-muted"> <br>
+    <section class="">
+      <div class="container text-center text-md-start mt-5">
+      
+        <div class="row mt-3">
+          
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            
+            <h6 class="text-uppercase fw-bold mb-4">
+              <i class="fas fa-gem me-3"></i>TIMBUKTU
+            </h6>
+            <p>
+            Timbuktu.com is a new tech company specializing in e-commerce, online ads, cloud computing, digital streaming, and AI. 
+            The company strives to deliver innovative solutions using the latest technologies to enhance user experience.
+            </p>
+          </div>
+          
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            
+            <h6 class="text-uppercase fw-bold mb-4">
+              TABS
+            </h6>
+            <p>
+              <a href="yoga.html" class="text-reset">Catalogue</a>
+            </p>
+            <p>
+              <a href="pilates.html" class="text-reset">Customers</a>
+            </p>
+            <p>
+              <a href="#" class="text-reset"></a>
+            </p>
+            <p>
+              <a href="#" class="text-reset"></a>
+            </p>
+          </div>
+          
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            
+            <h6 class="text-uppercase fw-bold mb-4">
+              Links
+            </h6>
+            <p>
+              <a href="register.php" class="text-reset">Register</a>
+            </p>
+            <p>
+              <a href="https://www.youtube.com/channel/UCcjrFU8OfjHsRkZu9i8CZJA" class="text-reset">Youtube</a>
+            </p>
+            <p>
+              <a href="mailto:timbuktu.connect@gmail.com" class="text-reset">Send Email</a>
+            </p>
+            <p>
+              <a href="faq.html" class="text-reset">FAQs</a>
+            </p>
+          </div>
+          
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            
+            <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+            <p><i class="fas fa-home me-3"></i> 4 Coke Dr, Manchester, JA</p>
+            <p>
+              <i class="fas fa-envelope me-3"></i>
+              timbuktu.connect@gmail.com
+            </p>
+            <p><i class="fas fa-phone me-3"></i> +1 (876) 335 9805</p>
+            <p><i class="fas fa-print me-3"></i> +1 (876) 547 4266</p>
+          </div>
+          
+        </div>
+        
+      </div>
+    </section>
+
+    <div class="text-center p-4" style="background-color: rgba(201, 201, 201, 0.05);">
+      © 2023 Copyright:
+      <a class="text-reset fw-bold" href="index.html">Timbuktu</a>
+      <p>
+    </div>
+   
+  </footer>
 </html>
