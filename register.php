@@ -24,6 +24,97 @@
         </nav>
 
 
+<?php
+  //defining variables
+  $username = $password = $email= $password_confirm = "";
+  $emailErr = $usernameErr = $passwordErr =  $passwordConfirmErr = "";
+
+  $pattern ="/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/";
+
+  function test_input($data) { //removes unnecessary characters
+    $data = trim($data);
+    return $data;
+  }
+
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+
+  //Validate email
+  if (empty($_POST["email"])) {
+    $emailErr = "Email is required";
+  } 
+  else {
+    $email = test_input($_POST["email"]);
+    if(!preg_match ($pattern, $email)){
+      $emailErr = "Invalid email format";
+    }
+  }
+
+   // Validate username
+   if (empty($_POST["username"])) {
+    $usernameErr = "Username is required";
+  } 
+  else {
+    $username = test_input($_POST["username"]);
+    // Check if username contains only letters and whitespace
+    if (!preg_match("/^[a-zA-Z ]*$/",$username)) {
+      $usernameErr = "Only letters and white space allowed";
+    }
+  }
+
+  // Validate password
+  if (empty($_POST["userpassword"])) {
+    $passwordErr = "Password is required";
+  } 
+  else {
+    $password = test_input($_POST["userpassword"]);
+    // Check if password length is at least 8 characters
+    if (strlen($password) < 8) {
+      $passwordErr = "Password must be at least 8 characters";
+    }
+  }
+
+  //Match passwords
+$password_confirm = test_input($_POST["password_confirm"]);
+if (empty($password_confirm)) {
+  $passwordConfirmErr = "Please confirm your password";
+} 
+elseif ($password != $password_confirm) {
+  $passwordConfirmErr = "Passwords do not match";
+}
+
+  if ($emailErr == "" && $usernameErr == "" && $passwordErr == "" && $passwordConfirmErr == "" ){
+
+    require 'connection.php';
+    $conn = Connect();
+    $username = $conn->real_escape_string($_POST['u_name']);
+    $useremail = $conn->real_escape_string($_POST['u_email']);
+    $password = $conn->real_escape_string($_POST['userpassword']);
+   
+    $query = "INSERT into user_table (u_name,u_email,userpassword) VALUES('" . $username . "','" . $useremail . "','" . $password . "')";
+                                                   
+    $success = $conn->query($query);          
+    
+    if (!$success){
+        die("Couldn't enter data: ".$conn->error);
+    }
+    
+    echo "Thank You for Contacting Us"; 
+    
+    
+    //sets session variable
+    $_SESSION["username"] = $username;
+    header("Location: index.php");
+
+    $conn->close();
+    
+
+exit();
+  }
+
+
+} ?>
+
     <div class="head">
         <h1>Sign Up</h1>
         <p class="mt-3">Already have an account? <span><a style="color:#FA79DF;" href="login.php">Log In</a></span></p>

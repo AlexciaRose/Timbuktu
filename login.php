@@ -1,3 +1,9 @@
+<?php
+
+$conn = new mysqli('localhost', 'root', '', 'timbuktu') or die($conn->connect_error);
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,9 +47,56 @@
     <a href="#" class="btn" tabindex="-1" role="button" type="submit">Log In</a>
 </div>
     
-    
+<?php
 
 
+
+  //defining variables
+  $email = "";
+  $password = "";
+  $emailErr ="";
+  $passwordErr = "";
+
+  function test_input($data) { //removes unnecessary characters
+    $data = trim($data);
+    return $data;
+  }
+
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+   // Validate email
+   if (empty($_POST["email"])) {
+    $emailErr = "Email is required";
+  } 
+  else {
+    $email = test_input($_POST["email"]);
+    // Check if email contains only letters and whitespace
+    if (!preg_match("/^[a-zA-Z ]*$/",$email)) {
+      $emailErr = "Please follow the email format";
+    }
+  }
+
+  // Validate password
+  if (empty($_POST["password"])) {
+    $passwordErr = "Password is required";
+  } 
+  else {
+    $password = test_input($_POST["password"]);
+    // Check if password length is at least 8 characters
+    if (strlen($password) < 8) {
+      $passwordErr = "Password must be at least 8 characters";
+    }
+  }
+  if ($emailErr == "" && $passwordErr == ""){
+    $_SESSION["email"] = $email;
+    header("Location: index.php");
+exit();
+  }
+
+
+}
+
+?>  
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
