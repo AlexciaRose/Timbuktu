@@ -68,17 +68,17 @@
 <div class="container mb-4">
       <div class="row">
         <div class="col-md-6 text">
-          <h3>E-COMMERCE</h3>
-          <p> Timbuktu.com's e-commerce solutions enable businesses to set up and manage online stores with ease. Their cloud-based platform offers 
-            a range of features, including secure payment gateways, inventory management, and order fulfillment. Their e-commerce platform is designed 
-            to drive sales and maximize customer satisfaction. </p>
-          <a href="catalogue.php">
+        <h2>MISSION STATEMENT</h2>
+          <p>At Timbuktu.com, our mission is to provide innovative and reliable technology solutions that enable businesses 
+            to thrive in the digital era. We are committed to delivering exceptional value to our clients through cutting-edge 
+            e-commerce, digital streaming, online advertising, cloud computing, and artificial intelligence technologies.</p>
+          <a href="register.php">
             <button class="btn btn-outline-dark btn-lg">JOIN TIMBUKTU</button>
         </a>
         </div>
         <div class="col-md-6">
             
-          &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<img src="Images\Shopcartabtus.jpg" alt="" height="350" width="550">
+          &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<img src="Images\mission.jpg" alt="" height="350" width="550">
 
         </div>
       </div>
@@ -90,17 +90,18 @@
       <div class="row">
       <div class="col-md-6">
             
-            <img src="Images\CCabt.jpg" alt="" height="350" width="550">
+            <img src="Images\vision.jpg" alt="" height="350" width="550">
   
           </div>
 
 
         <div class="col-md-6 text">
-          <h3>CLOUD COMPUTING</h3>
-          <p> Timbuktu.com offers cloud computing services that enable businesses to store, access and manage their data and applications easily and 
-            securely. The cloud computing platform is built with cutting-edge technologies, providing businesses with high performance, 
-            reliability, and scalability. </p>
-          <a href="catalogue.php">
+          <h2>VISION STATEMENT</h2>
+          <p> Our vision at Timbuktu.com is to be a leading technology company, empowering businesses around the world to leverage 
+            the power of technology to achieve their goals. We strive to be at the forefront of innovation, providing our clients 
+            with the most advanced and comprehensive technology solutions that drive growth, enhance user experience, and deliver 
+            sustainable business success. </p>
+          <a href="register.php">
             <button class="btn btn-outline-dark btn-lg">JOIN TIMBUKTU</button>
         </a>
         </div>
@@ -116,64 +117,29 @@
 <div class="container mb-4">
       <div class="row">
         <div class="col-md-6 text">
-          <h3>AI TECHNOLOGY</h3>
-          <p> Timbuktu.com leverages AI to deliver targeted advertising solutions that enhance user engagement and provide personalized experiences. 
-            Their AI technology enables businesses to optimize their ad campaigns and stay ahead of the competition in the digital landscape. </p>
-          <a href="catalogue.php">
+          <h2>CORE VALUES</h2>
+
+          <ul>
+        <li>Innovation: We value creativity and the pursuit of new ideas that push the boundaries of what's possible in technology. </li>
+        <li>Customer focus: We are committed to putting our customers first and providing them with the highest level of service and support. </li>
+        <li>Integrity: We believe in honesty, transparency, and ethical business practices in all aspects of our operations.</li>
+        <li>Excellence: We strive for excellence in everything we do, setting high standards and continuously improving to achieve the best possible results.</li>
+
+</ul>
+          
+          <a href="register.php">
             <button class="btn btn-outline-dark btn-lg">JOIN TIMBUKTU</button>
         </a>
         </div>
         <div class="col-md-6">
             
-          &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<img src="Images\aiGIF.gif" alt="" height="350" width="550">
+          &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<img src="Images\coreval.jpg" alt="" height="350" width="550">
 
         </div>
       </div>
     </div>
 
 <br> <br> <br>
-    <div class="container mb-4">
-      <div class="row">
-      <div class="col-md-6">
-            
-            <img src="Images\digimar.jpg" alt="" height="350" width="550">
-  
-          </div>
-
-
-        <div class="col-md-6 text">
-          <h3>DIGITAL STREAMING</h3>
-          <p> Timbuktu.com's digital streaming service offers an extensive collection of movies, TV shows, 
-            and music from around the world. Their streaming platform is built on the latest technologies, 
-            delivering high-quality content with seamless streaming experience for users on any device. </p>
-          <a href="catalogue.php">
-            <button class="btn btn-outline-dark btn-lg">JOIN TIMBUKTU</button>
-        </a>
-        </div>
-        
-      </div>
-    </div>
-
-    <div class="container mb-4">
-      <div class="row">
-        <div class="col-md-6 text">
-          <h3>ONLINE ADVERTISING</h3>
-          <p> Timbuktu.com's online advertising solutions leverage advanced AI and machine learning technologies to deliver 
-            targeted ads that maximize user engagement and conversions. Their online advertising platform offers flexible 
-            pricing plans and real-time performance analytics, enabling businesses to optimize their ad campaigns and maximize ROI. </p>
-          <a href="catalogue.php">
-            <button class="btn btn-outline-dark btn-lg">JOIN TIMBUKTU</button>
-        </a>
-        </div>
-        <div class="col-md-6">
-            
-          &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<img src="Images\onliadver.jpg" alt="" height="350" width="550">
-
-        </div>
-      </div>
-    </div>
-
-
 
 
 
