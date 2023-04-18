@@ -79,11 +79,11 @@
 <div class="head">
                   <h1>Contact Us</h1>
               </div>  
-                
-      <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" autocomplete="off">
+            
+      <form class="" method="post" action="send.php <?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" autocomplete="off">
           <div class="row oneform" id="contact-form">
               <div class="form-floating mb-3">
-                  <input type="email" class="form-control" name="useremail" id="useremail" placeholder="name@example.com">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com">
                   <label for="useremail">Email</label>
               </div>
               <div class="form-floating mb-3">
@@ -95,10 +95,15 @@
                     </textarea>
                   <label for="message">Message</label>
               </div>
-              <input type="submit" tabindex="-1" role="button" class="btn" tabindex="-1" value="Send Message">
+              <input type="submit" tabindex="-1" role="button" class="btn" tabindex="-1" value="Send Message" name="send">
+              <button type="submit" name = "send"> Send</button>
           </div>
 
         </form>
+
+
+        
+
 
 
 </body>
