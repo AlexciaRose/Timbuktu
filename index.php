@@ -141,7 +141,128 @@ else{?>
                     
                 </div>
 
-    
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<div class="container mb-4">
+      <div class="row">
+        <div class="col-md-6 text">
+          <h3 style="color:white;" >E-COMMERCE</h3>
+          <p style="color:white;"> Timbuktu.com's e-commerce solutions enable businesses to set up and manage online stores with ease. Their cloud-based platform offers 
+            a range of features, including secure payment gateways, inventory management, and order fulfillment. Their e-commerce platform is designed 
+            to drive sales and maximize customer satisfaction. </p>
+          <a href="register.php">
+          <button class="btn btn-outline-light btn-lg" style="color:white;">JOIN TIMBUKTU</button>
+        </a>
+        </div>
+        <div class="col-md-6">
+            
+          &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<img src="Images\Shopcartabtus.jpg" alt="" height="350" width="550">
+
+        </div>
+      </div>
+    </div>
+
+
+<br> <br> <br>
+    <div class="container mb-4">
+      <div class="row">
+      <div class="col-md-6">
+            
+            <img src="Images\CCabt.jpg" alt="" height="350" width="550">
+  
+          </div>
+
+
+        <div class="col-md-6 text">
+          <h3 style="color:white;">CLOUD COMPUTING</h3>
+          <p style="color:white;"> Timbuktu.com offers cloud computing services that enable businesses to store, access and manage their data and applications easily and 
+            securely. The cloud computing platform is built with cutting-edge technologies, providing businesses with high performance, 
+            reliability, and scalability. </p>
+          <a href="register.php">
+          <button class="btn btn-outline-light btn-lg" style="color:white;">JOIN TIMBUKTU</button>
+        </a>
+        </div>
+        
+      </div>
+    </div>
+
+
+
+
+
+<br><br>
+<div class="container mb-4">
+      <div class="row">
+        <div class="col-md-6 text">
+          <h3 style="color:white;">AI TECHNOLOGY</h3>
+          <p style="color:white;"> Timbuktu.com leverages AI to deliver targeted advertising solutions that enhance user engagement and provide personalized experiences. 
+            Their AI technology enables businesses to optimize their ad campaigns and stay ahead of the competition in the digital landscape. </p>
+          <a href="register.php">
+          <button class="btn btn-outline-light btn-lg" style="color:white;">JOIN TIMBUKTU</button>
+        </a>
+        </div>
+        <div class="col-md-6">
+            
+          &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<img src="Images\aiGIF.gif" alt="" height="350" width="550">
+
+        </div>
+      </div>
+    </div>
+
+<br> <br> <br>
+    <div class="container mb-4">
+      <div class="row">
+      <div class="col-md-6">
+            
+            <img src="Images\digimar.jpg" alt="" height="350" width="550">
+  
+          </div>
+
+
+        <div class="col-md-6 text">
+          <h3 style="color:white;">DIGITAL STREAMING</h3>
+          <p style="color:white;"> Timbuktu.com's digital streaming service offers an extensive collection of movies, TV shows, 
+            and music from around the world. Their streaming platform is built on the latest technologies, 
+            delivering high-quality content with seamless streaming experience for users on any device. </p>
+          <a href="register.php">
+          <button class="btn btn-outline-light btn-lg" style="color:white;">JOIN TIMBUKTU</button>
+        </a>
+        </div>
+        
+      </div>
+    </div>
+<br><br>
+    <div class="container mb-4">
+      <div class="row">
+        <div class="col-md-6 text">
+          <h3 style="color:white;">ONLINE ADVERTISING</h3>
+          <p style="color:white;"> Timbuktu.com's online advertising solutions leverage advanced AI and machine learning technologies to deliver 
+            targeted ads that maximize user engagement and conversions. Their online advertising platform offers flexible 
+            pricing plans and real-time performance analytics, enabling businesses to optimize their ad campaigns and maximize ROI. </p>
+          <a href="register.php">
+            <button class="btn btn-outline-light btn-lg" style="color:white;">JOIN TIMBUKTU</button>
+        </a>
+        </div>
+        <div class="col-md-6">
+            
+          &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<img src="Images\onliadver.jpg" alt="" height="350" width="550">
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+</body>
+
+
+
+
+
+<br> <br>
 
 
 
@@ -149,4 +270,85 @@ else{?>
 
 
 </body>
+
+<footer class="text-center text-lg-start bg-light text-muted"> <br>
+    <section class="">
+      <div class="container text-center text-md-start mt-5">
+      
+        <div class="row mt-3">
+          
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            
+            <h6 class="text-uppercase fw-bold mb-4">
+              <i class="fas fa-gem me-3"></i>TIMBUKTU
+            </h6>
+            <p>
+            Timbuktu.com is a new tech company specializing in e-commerce, online ads, cloud computing, digital streaming, and AI. 
+            The company strives to deliver innovative solutions using the latest technologies to enhance user experience.
+            </p>
+          </div>
+          
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            
+            <h6 class="text-uppercase fw-bold mb-4">
+              TABS
+            </h6>
+            <p>
+              <a href="yoga.html" class="text-reset">Catalogue</a>
+            </p>
+            <p>
+              <a href="pilates.html" class="text-reset">Customers</a>
+            </p>
+            <p>
+              <a href="#" class="text-reset"></a>
+            </p>
+            <p>
+              <a href="#" class="text-reset"></a>
+            </p>
+          </div>
+          
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            
+            <h6 class="text-uppercase fw-bold mb-4">
+              Links
+            </h6>
+            <p>
+              <a href="register.php" class="text-reset">Register</a>
+            </p>
+            <p>
+              <a href="https://www.youtube.com/channel/UCcjrFU8OfjHsRkZu9i8CZJA" class="text-reset">Youtube</a>
+            </p>
+            <p>
+              <a href="mailto:timbuktu.connect@gmail.com" class="text-reset">Send Email</a>
+            </p>
+            <p>
+              <a href="faq.html" class="text-reset">FAQs</a>
+            </p>
+          </div>
+          
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            
+            <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+            <p><i class="fas fa-home me-3"></i> 4 Coke Dr, Manchester, JA</p>
+            <p>
+              <i class="fas fa-envelope me-3"></i>
+              timbuktu.connect@gmail.com
+            </p>
+            <p><i class="fas fa-phone me-3"></i> +1 (876) 335 9805</p>
+            <p><i class="fas fa-print me-3"></i> +1 (876) 547 4266</p>
+          </div>
+          
+        </div>
+        
+      </div>
+    </section>
+
+    <div class="text-center p-4" style="background-color: rgba(201, 201, 201, 0.05);">
+      © 2023 Copyright:
+      <a class="text-reset fw-bold" href="index.html">Timbuktu</a>
+      <p>
+    </div>
+   
+  </footer>
+
 </html>

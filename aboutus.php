@@ -64,7 +64,171 @@
                 advancements and providing exceptional services that cater to the evolving needs of the market.</p>
         </div>
 
+        <br><br>
+<div class="container mb-4">
+      <div class="row">
+        <div class="col-md-6 text">
+        <h2>MISSION STATEMENT</h2>
+          <p>At Timbuktu.com, our mission is to provide innovative and reliable technology solutions that enable businesses 
+            to thrive in the digital era. We are committed to delivering exceptional value to our clients through cutting-edge 
+            e-commerce, digital streaming, online advertising, cloud computing, and artificial intelligence technologies.</p>
+          <a href="register.php">
+            <button class="btn btn-outline-dark btn-lg">JOIN TIMBUKTU</button>
+        </a>
+        </div>
+        <div class="col-md-6">
+            
+          &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<img src="Images\mission.jpg" alt="" height="350" width="550">
+
+        </div>
+      </div>
+    </div>
+
+
+<br> <br> <br>
+    <div class="container mb-4">
+      <div class="row">
+      <div class="col-md-6">
+            
+            <img src="Images\vision.jpg" alt="" height="350" width="550">
+  
+          </div>
+
+
+        <div class="col-md-6 text">
+          <h2>VISION STATEMENT</h2>
+          <p> Our vision at Timbuktu.com is to be a leading technology company, empowering businesses around the world to leverage 
+            the power of technology to achieve their goals. We strive to be at the forefront of innovation, providing our clients 
+            with the most advanced and comprehensive technology solutions that drive growth, enhance user experience, and deliver 
+            sustainable business success. </p>
+          <a href="register.php">
+            <button class="btn btn-outline-dark btn-lg">JOIN TIMBUKTU</button>
+        </a>
+        </div>
+        
+      </div>
+    </div>
+
+
+
+
+
+<br><br>
+<div class="container mb-4">
+      <div class="row">
+        <div class="col-md-6 text">
+          <h2>CORE VALUES</h2>
+
+          <ul>
+        <li>Innovation: We value creativity and the pursuit of new ideas that push the boundaries of what's possible in technology. </li>
+        <li>Customer focus: We are committed to putting our customers first and providing them with the highest level of service and support. </li>
+        <li>Integrity: We believe in honesty, transparency, and ethical business practices in all aspects of our operations.</li>
+        <li>Excellence: We strive for excellence in everything we do, setting high standards and continuously improving to achieve the best possible results.</li>
+
+</ul>
+          
+          <a href="register.php">
+            <button class="btn btn-outline-dark btn-lg">JOIN TIMBUKTU</button>
+        </a>
+        </div>
+        <div class="col-md-6">
+            
+          &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<img src="Images\coreval.jpg" alt="" height="350" width="550">
+
+        </div>
+      </div>
+    </div>
+
+<br> <br> <br>
+
+
+
+
 
 </body>
 
+
+
+
+
+<br> <br>
+<footer class="text-center text-lg-start bg-light text-muted"> <br>
+    <section class="">
+      <div class="container text-center text-md-start mt-5">
+      
+        <div class="row mt-3">
+          
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            
+            <h6 class="text-uppercase fw-bold mb-4">
+              <i class="fas fa-gem me-3"></i>TIMBUKTU
+            </h6>
+            <p>
+            Timbuktu.com is a new tech company specializing in e-commerce, online ads, cloud computing, digital streaming, and AI. 
+            The company strives to deliver innovative solutions using the latest technologies to enhance user experience.
+            </p>
+          </div>
+          
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            
+            <h6 class="text-uppercase fw-bold mb-4">
+              TABS
+            </h6>
+            <p>
+              <a href="yoga.html" class="text-reset">Catalogue</a>
+            </p>
+            <p>
+              <a href="pilates.html" class="text-reset">Customers</a>
+            </p>
+            <p>
+              <a href="#" class="text-reset"></a>
+            </p>
+            <p>
+              <a href="#" class="text-reset"></a>
+            </p>
+          </div>
+          
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            
+            <h6 class="text-uppercase fw-bold mb-4">
+              Links
+            </h6>
+            <p>
+              <a href="register.php" class="text-reset">Register</a>
+            </p>
+            <p>
+              <a href="https://www.youtube.com/channel/UCcjrFU8OfjHsRkZu9i8CZJA" class="text-reset">Youtube</a>
+            </p>
+            <p>
+              <a href="mailto:timbuktu.connect@gmail.com" class="text-reset">Send Email</a>
+            </p>
+            <p>
+              <a href="faq.html" class="text-reset">FAQs</a>
+            </p>
+          </div>
+          
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            
+            <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+            <p><i class="fas fa-home me-3"></i> 4 Coke Dr, Manchester, JA</p>
+            <p>
+              <i class="fas fa-envelope me-3"></i>
+              timbuktu.connect@gmail.com
+            </p>
+            <p><i class="fas fa-phone me-3"></i> +1 (876) 335 9805</p>
+            <p><i class="fas fa-print me-3"></i> +1 (876) 547 4266</p>
+          </div>
+          
+        </div>
+        
+      </div>
+    </section>
+
+    <div class="text-center p-4" style="background-color: rgba(201, 201, 201, 0.05);">
+      © 2023 Copyright:
+      <a class="text-reset fw-bold" href="index.html">Timbuktu</a>
+      <p>
+    </div>
+   
+  </footer>
 </html>
