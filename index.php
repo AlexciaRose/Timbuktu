@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,6 +21,11 @@
     <title>Timbuktu | Get Started</title>
 </head>
 <body>
+
+<?php
+if(isset($_SESSION["username"]) && !empty($_SESSION["username"])) { $username = $_SESSION["username"]; 
+setcookie("username", $username, time() + 3600, "/");?>
+
          <!-- NavBar -->    
          <nav class="navbar navbar-expand-lg fixed-top">
             <div class="container-fluid me-5">
@@ -65,7 +74,58 @@
 
             </div>
         </nav>
+        <?php
+}
 
+else{?>
+
+<nav class="navbar navbar-expand-lg fixed-top">
+            <div class="container-fluid me-5">
+                <a class="navbar-brand ms-5" href="#"><span style="color:#FA79DF;">TIM</span>BUKTU</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse ms-3" id="navbarText">
+                    <div class="container-fluid">
+                        <ul class="navbar-nav mb-2 mb-lg-0 w-100 ps-5">
+                            <li class="nav-item">
+                            <a class="nav-link" href="login.php">About Us</a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link" href="login.php">Catalogue</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="login.php">Customers</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="login.php">Pricing</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="login.php">Contact Us</a>
+                            </li>
+                        </ul>
+                    </div>
+               
+                    <div class="d-flex align-items-center">
+                        <span class="me-4">                          
+                        </span>
+                        <span>
+                        <i class="bi bi-cart me-4" style="color:white; font-size: 1.5rem;"></i>
+                        </span>
+                        <span>
+                       <a href="login.php"><i title="Log In/Create Account" class="bi bi-person-fill me-5" style="color:white; font-size: 1.5rem;"></i></a> 
+                        </span>
+                    </div>
+
+                </div> 
+                
+                <?php include 'modal-search.php'; ?>
+
+            </div>
+        </nav>
+        <?php
+}?>
+ 
 
                 <div class="container-one mt-5">
                     <img src="Images/robotarms.png" class="floating-image" alt="Image">
