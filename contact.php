@@ -1,3 +1,16 @@
+<?php
+session_start();
+
+
+if(isset($_SESSION["username"]) && !empty($_SESSION["username"])) { 
+  
+  $username = $_SESSION["username"]; 
+
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,55 +36,7 @@
 <!-- NavBar -->    
 <nav class="navbar navbar-expand-lg">
             <div class="container-fluid me-5">
-                <a class="navbar-brand ms-5" href="index.php"><span style="color:#FA79DF;">TIM</span>BUKTU</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse ms-3" id="navbarText">
-                    <div class="container-fluid">
-                        <ul class="navbar-nav mb-2 mb-lg-0 w-100 ps-5">
-                            <li class="nav-item">
-                            <a class="nav-link" href="#">About Us</a>
-                            </li>
-                            <li class="nav-item">
-                            <a class="nav-link" href="catalogue.php">Catalogue</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Customers</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Pricing</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" href="contact.php">Contact Us</a>
-                            </li>
-                        </ul>
-                    </div>
-               
-                    <div class="d-flex align-items-center">
-                        <span class="me-4">
-                            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#searchModal">
-                                 <i class="bi bi-search" style="color:white; font-size: 1.2rem;"></i>
-                            </a>                           
-                        </span>
-                        <span>
-                        <i class="bi bi-cart me-4" style="color:white; font-size: 1.5rem;"></i>
-                        </span>
-                        <span class="dropdown">
-                            <a class="nav-link profile" href=""# data-bs-toggle="dropdown"><i class="bi bi-person-fill me-5" style="color:white; font-size: 1.5rem;"></i></a>
-                                <ul class="dropdown-menu">
-                                <li>Hi,  <?php echo $username; ?></li>
-                                <li><a class="dropdown-item" href="logout.php"> Logout</a></li>
-                                <li><a class="dropdown-item" href="modify.php"> Edit Account </a></li>
-                                <li><a class="dropdown-item" href="delete.php"> Delete Account </a></li>
-                                </ul>
-                        </span>
-                    </div>
-
-                </div> 
-                
-                <?php include 'modal-search.php'; ?>
-
+                <a class="navbar-brand" href="index.php"><span style="color:#FA79DF;">TIM</span>BUKTU</a>
             </div>
         </nav>
     

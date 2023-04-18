@@ -1,18 +1,3 @@
-<?php
-session_start();
-
-
-if(isset($_SESSION["username"]) && !empty($_SESSION["username"])) { 
-  
-  $username = $_SESSION["username"]; 
-
-}else{
-  header("Location: index.php");
-  exit();  
-}
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,7 +18,7 @@ if(isset($_SESSION["username"]) && !empty($_SESSION["username"])) {
 </head>
 <body>
         <!-- NavBar -->    
-        <nav class="navbar navbar-expand-lg bg-dark">
+        <nav class="navbar navbar-expand-lg bg-dark fixed-top">
             <div class="container-fluid me-5">
                 <a class="navbar-brand ms-5" href="index.php"><span style="color:#FA79DF;">TIM</span>BUKTU</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,13 +28,19 @@ if(isset($_SESSION["username"]) && !empty($_SESSION["username"])) {
                     <div class="container-fluid">
                         <ul class="navbar-nav mb-2 mb-lg-0 w-100 ps-5">
                             <li class="nav-item">
-                            <a class="nav-link" href="aboutus.php">About Us</a>
+                            <a class="nav-link" href="#">About Us</a>
                             </li>
                             <li class="nav-item">
-                            <a class="nav-link" href="catalogue.php">Catalogue</a>
+                            <a class="nav-link active" aria-current="page" href="catalogue.php">Catalogue</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="contact.php">Contact Us</a>
+                                <a class="nav-link" href="#">Customers</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Pricing</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Contact Us</a>
                             </li>
                         </ul>
                     </div>
@@ -61,40 +52,33 @@ if(isset($_SESSION["username"]) && !empty($_SESSION["username"])) {
                             </a>                           
                         </span>
                         <span>
-                          <a href="cart.php">
-                               <i class="bi bi-cart me-4" style="color:white; font-size: 1.5rem;"></i>
-                          </a>
+                        <a href="cart.php"><i title="Check Cart" class="bi bi-cart me-4" style="color:white; font-size: 1.5rem;"></i></a>
+                    
                         </span>
-                        <span class="dropdown">
-                            <a class="nav-link profile" data-bs-toggle="dropdown"><i class="bi bi-person-fill me-5" style="color:white; font-size: 1.5rem;"></i></a>
-                                <ul class="dropdown-menu">
-                                <li>Hi, <?php echo $username; ?></li>
-                                <li><a class="dropdown-item" href="logout.php"> Logout</a></li>
-                                <li><a class="dropdown-item" href="modify.php"> Edit Account </a></li>
-                                <li><a class="dropdown-item" href="delete.php"> Delete Account </a></li>
-                                </ul>
+                        <span>
+                       <a href="login.php"><i title="Log In/Create Account" class="bi bi-person-fill me-5" style="color:white; font-size: 1.5rem;"></i></a> 
                         </span>
                     </div>
 
                 </div> 
-                
+
                 <?php include 'modal-search.php'; ?>
+                
+
 
             </div>
         </nav>
 
 
-<div class="vw-100 top-info" style="background-image: url(Images/homelog.jpeg);">
+<div class="vw-100 top-info">
     
 </div>
        
         <form action="search.php" method="POST" autocomplete="off">
           <div class="mt-5 mb-5">
-            <input type="text" class="form-control" id="prod-search" name="prod-search" placeholder="Search Smart Devices">
-            <input type="hidden" name="category" value="smart-home-devices">
-            <input type="hidden" name="category2" value="smart-home-devices">
-
-        </div>
+            <input type="text" class="form-control" id="prod-search" name="prod-search" placeholder="Search Online Advertising Tools">
+            <input type="hidden" name="category" value="online-advertising-tools">
+          </div>
         </form>
 
     <div class="row ms-5 ps-5 prod">
@@ -107,26 +91,15 @@ if(isset($_SESSION["username"]) && !empty($_SESSION["username"])) {
             
 
             <?php
-  
+
+                
                 require 'connection.php';
               
                 // connect to database
                 $conn = Connect();
-                $sql = "SELECT * FROM products_tbl WHERE category = 'smart-home-devices'";
+                $sql = "SELECT * FROM products_tbl WHERE category = 'online-advertising-tools'";
 
-                $sql2 = "SELECT userID FROM user_tbl WHERE u_name = ?";
-                $stmt = $conn->prepare($sql2);
-                $stmt->bind_param("s", $username);
-                $stmt->execute();
-                $result2 = $stmt->get_result();
-                
                 $result = $conn->query($sql);
-
-                 if ($result2->num_rows > 0) {
-                    $row2 = $result2->fetch_assoc();
-                    $user_id = $row2["userID"];
-                
-                   
 
                 if ($result->num_rows > 0) {
                     // output data of each row
@@ -134,10 +107,11 @@ if(isset($_SESSION["username"]) && !empty($_SESSION["username"])) {
                         $prod_id = $row["productID"];
                         $prod_name = $row["name"];
                         $prod_price = $row["price"];
-                        $prod_cat= $row["category"];
                         $image_path = $row["image_url"];
-                        
+                        $prod_cat= $row["category"];
+                        $user_id = 301;
 
+                        
                         $productcard = '<div class="card col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 ms-4 mb-3">
                                             <img src="Images/'. $prod_cat .'/' . $image_path . '" class="card-img-top" alt="...">
                                             <div class="card-body">
@@ -145,8 +119,9 @@ if(isset($_SESSION["username"]) && !empty($_SESSION["username"])) {
                                                     <h5 class="card-title">' . $prod_name . '</h5>
                                                 </a> 
                                                 <p class="card-text"> <strong>$' . $prod_price . '</strong></p>
-                                                <a href="http://localhost/Timbuktu/add.php?prod_id='.$prod_id.'" class="btn btn-light">Add to Cart</a>
-                                         </div>
+                                                <a href="#" class="btn btn-light">Add to Cart</a>
+                                                <a href="cart.php?user_id=<?php echo $user_id; ?>" class="btn2 btn btn-light">Buy Now</a>
+                                                </div>
                                         </div>';
                                         
                         echo $productcard;
@@ -154,10 +129,8 @@ if(isset($_SESSION["username"]) && !empty($_SESSION["username"])) {
                 } else {
                     echo "No results found.";
                 }
-            }
 
                 // close database connection
-                $stmt->close();
                 $conn->close();
              ?>
                 

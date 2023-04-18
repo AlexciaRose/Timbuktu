@@ -124,7 +124,7 @@ $conn = Connect();
 
 
 <!-- NavBar -->    
-        <nav class="navbar navbar-expand-lg">
+<nav class="navbar navbar-expand-lg bg-dark">
             <div class="container-fluid me-5">
                 <a class="navbar-brand ms-5" href="index.php"><span style="color:#FA79DF;">TIM</span>BUKTU</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -134,16 +134,10 @@ $conn = Connect();
                     <div class="container-fluid">
                         <ul class="navbar-nav mb-2 mb-lg-0 w-100 ps-5">
                             <li class="nav-item">
-                            <a class="nav-link" href="#">About Us</a>
+                            <a class="nav-link" href="aboutus.php">About Us</a>
                             </li>
                             <li class="nav-item">
                             <a class="nav-link" href="catalogue.php">Catalogue</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Customers</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Pricing</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="contact.php">Contact Us</a>
@@ -158,15 +152,17 @@ $conn = Connect();
                             </a>                           
                         </span>
                         <span>
-                        <i class="bi bi-cart me-4" style="color:white; font-size: 1.5rem;"></i>
+                          <a href="cart.php">
+                               <i class="bi bi-cart me-4" style="color:white; font-size: 1.5rem;"></i>
+                          </a>
                         </span>
                         <span class="dropdown">
-                            <a class="nav-link profile" href=""# data-bs-toggle="dropdown"><i class="bi bi-person-fill me-5" style="color:white; font-size: 1.5rem;"></i></a>
+                            <a class="nav-link profile" data-bs-toggle="dropdown"><i class="bi bi-person-fill me-5" style="color:white; font-size: 1.5rem;"></i></a>
                                 <ul class="dropdown-menu">
-                                <li>Hi,  <?php echo $username; ?></li>
-                                <li><a class="dropdown-item" href="logout.php">Logout</a></li>
-                                <li><a class="dropdown-item" href="#">Edit Account </a></li>
-                                <li><a class="dropdown-item" href="delete.php">Delete Account </a></li>
+                                <li>Hi, <?php echo $username; ?></li>
+                                <li><a class="dropdown-item" href="logout.php"> Logout</a></li>
+                                <li><a class="dropdown-item" href="modify.php"> Edit Account </a></li>
+                                <li><a class="dropdown-item" href="delete.php"> Delete Account </a></li>
                                 </ul>
                         </span>
                     </div>
@@ -177,7 +173,6 @@ $conn = Connect();
 
             </div>
         </nav>
-
 
         <div class="head">
                 <h1>Edit Account</h1>

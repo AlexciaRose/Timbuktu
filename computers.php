@@ -1,6 +1,16 @@
 <?php
 session_start();
-$username = $_SESSION["username"];
+
+
+if(isset($_SESSION["username"]) && !empty($_SESSION["username"])) { 
+  
+  $username = $_SESSION["username"]; 
+
+}else{
+  header("Location: index.php");
+  exit();  
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -33,16 +43,10 @@ $username = $_SESSION["username"];
                     <div class="container-fluid">
                         <ul class="navbar-nav mb-2 mb-lg-0 w-100 ps-5">
                             <li class="nav-item">
-                            <a class="nav-link" href="#">About Us</a>
+                            <a class="nav-link" href="aboutus.php">About Us</a>
                             </li>
                             <li class="nav-item">
                             <a class="nav-link" href="catalogue.php">Catalogue</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Customers</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Pricing</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="contact.php">Contact Us</a>
@@ -57,12 +61,14 @@ $username = $_SESSION["username"];
                             </a>                           
                         </span>
                         <span>
-                        <i class="bi bi-cart me-4" style="color:white; font-size: 1.5rem;"></i>
+                          <a href="cart.php">
+                               <i class="bi bi-cart me-4" style="color:white; font-size: 1.5rem;"></i>
+                          </a>
                         </span>
                         <span class="dropdown">
-                            <a class="nav-link profile" href=""# data-bs-toggle="dropdown"><i class="bi bi-person-fill me-5" style="color:white; font-size: 1.5rem;"></i></a>
+                            <a class="nav-link profile" data-bs-toggle="dropdown"><i class="bi bi-person-fill me-5" style="color:white; font-size: 1.5rem;"></i></a>
                                 <ul class="dropdown-menu">
-                                <li>Hi,  <?php echo $username; ?></li>
+                                <li>Hi, <?php echo $username; ?></li>
                                 <li><a class="dropdown-item" href="logout.php"> Logout</a></li>
                                 <li><a class="dropdown-item" href="modify.php"> Edit Account </a></li>
                                 <li><a class="dropdown-item" href="delete.php"> Delete Account </a></li>
@@ -78,7 +84,7 @@ $username = $_SESSION["username"];
         </nav>
 
 
-<div class="w-100 top-info">
+<div class="w-100 top-info" style="background-image: url(Images/complog.png);">
     
 </div>
        
@@ -108,7 +114,22 @@ $username = $_SESSION["username"];
                 $conn = Connect();
                 $sql = "SELECT * FROM products_tbl WHERE category = 'Computers' OR category = 'Accessories'";
 
+                $sql2 = "SELECT userID FROM user_tbl WHERE u_name = ?";
+                $stmt = $conn->prepare($sql2);
+                $stmt->bind_param("s", $username);
+                $stmt->execute();
+                $result2 = $stmt->get_result();
+
                 $result = $conn->query($sql);
+
+                if ($result2->num_rows > 0) {
+                    $row2 = $result2->fetch_assoc();
+                    $user_id = $row2["userID"];
+                
+                    // get the products for the given user ID
+                    $stmt = $conn->prepare($sql);
+                    $stmt->execute();
+                    $result = $stmt->get_result();
 
                 if ($result->num_rows > 0) {
                     // output data of each row
@@ -116,19 +137,20 @@ $username = $_SESSION["username"];
                         $prod_id = $row["productID"];
                         $prod_name = $row["name"];
                         $prod_price = $row["price"];
+                        $prod_cat= $row["category"];
                         $image_path = $row["image_url"];
-                        $user_id = 301;
-
                         
+
                         $productcard = '<div class="card col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 ms-4 mb-3">
-                                            <img src="Images/' . $image_path . '" class="card-img-top" alt="...">
-                                            <div class="card-body">
+                        <img src="Images/'. $prod_cat .'/' . $image_path . '" class="card-img-top" alt="...">
+                        <div class="card-body">
                                                 <a class="" href="#" style="text-decoration:none;">
                                                     <h5 class="card-title">' . $prod_name . '</h5>
                                                 </a> 
                                                 <p class="card-text"> <strong>$' . $prod_price . '</strong></p>
-                                                <a href="#" class="btn btn-light">Add to Cart</a>
-                                                <a href="cart.php?user_id=<?php echo $user_id; ?>" class="btn2 btn btn-light">Buy Now</a>
+                                                <a href="http://localhost/Timbuktu/add.php?prod_id='.$prod_id.'" class="btn btn-light">Add to Cart</a>
+                                                
+                                                
 
                                             </div>
                                         </div>';
@@ -138,8 +160,10 @@ $username = $_SESSION["username"];
                 } else {
                     echo "No results found.";
                 }
+            }
 
                 // close database connection
+                $stmt->close();
                 $conn->close();
              ?>
                 

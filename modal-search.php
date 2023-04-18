@@ -72,9 +72,11 @@
       </div>
       <div class="modal-body">
       <h5 class="modal-title mb-4">What are you looking for?</h5>
-      <form>
+      <form action="search.php" method="post">
           <div class="mb-3">
-            <input type="text" class="form-control" placeholder="Enter item or keyword">
+            <input type="text" name="prod-search" class="form-control" placeholder="Enter item or keyword">
+            <input type="hidden" name="category" value="">
+            <input type="hidden" name="category2" value="">
           </div>
         </form>
       </div>
