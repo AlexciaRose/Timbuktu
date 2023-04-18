@@ -76,8 +76,8 @@
        
         <form action="search.php" method="POST" autocomplete="off">
           <div class="mt-5 mb-5">
-            <input type="text" class="form-control" id="prod-search" name="prod-search" placeholder="Search Artificial Intelligence Solutions">
-            <input type="hidden" name="category" value="artificial-intelligence-solutions">
+            <input type="text" class="form-control" id="prod-search" name="prod-search" placeholder="Search Online Advertising Tools">
+            <input type="hidden" name="category" value="online-advertising-tools">
           </div>
         </form>
 
@@ -97,7 +97,7 @@
               
                 // connect to database
                 $conn = Connect();
-                $sql = "SELECT * FROM products_tbl WHERE category = 'artificial-intelligence-solutions'";
+                $sql = "SELECT * FROM products_tbl WHERE category = 'online-advertising-tools'";
 
                 $result = $conn->query($sql);
 

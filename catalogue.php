@@ -112,7 +112,7 @@
             <div class="card mt-3 border-0 me-5" style="width: 35rem;">
                 <img src="Images/socilog.jpg" class="card-img-top" alt="..." style="height: 300px;">
                 <div class="card-body ps-0">
-                    <a href=""><h5 class="card-title mt-3">Online Advertising Tools</h5></a>
+                    <a href="advertisingtools.php"><h5 class="card-title mt-3">Online Advertising Tools</h5></a>
                 </div>
             </div>
         </div>
@@ -120,7 +120,7 @@
             <div class="card mt-3 ms-5 border-0" style="width: 35rem;">
                 <img src="Images/cloudlog.jpg" class="card-img-top" alt="..." style="height: 300px;">
                 <div class="card-body ps-0">
-                    <a href=""><h5 class="card-title mt-3">Cloud Computing Services</h5></a>
+                    <a href="cloudcomputing.php"><h5 class="card-title mt-3">Cloud Computing Services</h5></a>
                 </div>
             </div>
         </div>
