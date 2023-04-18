@@ -1,3 +1,10 @@
+<!-- 
+  Group Members:
+  Ashley Wellington
+  Alexcia Rose
+  Khristoph Chambers
+  Alyssa Walker
+  Jovan Walker -->
 <?php
 session_start();
 ?>
