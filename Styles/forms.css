@@ -18,6 +18,12 @@ body{
     margin-top: 10px;
 }
 
+.head2{
+    text-align: center;
+    width: auto;
+    margin-top: 50px;
+}
+
 h1{
     font-size: 80px;
     font-family: 'Exo';
@@ -32,7 +38,15 @@ h2{
   margin-top: 100px;
   margin-left: auto;
   font-family: 'Exo';
+}
 
+.head2 h3{
+    font-size: 60px;
+    font-family: 'Exo';
+    font-weight: bold;
+    letter-spacing: 5px;
+    color: white; 
+    position: relative;
 }
 
 .head p{
@@ -78,3 +92,27 @@ label{
     padding-left: auto;
 }
 
+.delete .btn2{
+    background-color: rgb(255, 255, 255);
+    font-family: 'Martel';
+    font-weight: bolder;
+    margin-top: -5px;
+    border-radius: 25px;
+    border: 1px solid rgb(0, 0, 0);
+    height: 40px;
+    padding-top: 10px;
+    padding-left: auto;
+    color: black;
+    margin-bottom: 5px;
+    margin-left: 20px;
+    width: 100px;
+    margin-right: 30px;
+}
+
+
+.delete{
+    text-align: center;
+    width: auto;
+    margin-top: 50px;
+    font-size: 20px;
+}

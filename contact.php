@@ -1,8 +1,3 @@
-<?php
-session_start();
-$username = $_SESSION["username"];
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,20 +5,23 @@ $username = $_SESSION["username"];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
     <!--Stylesheets -->
   <?php 
+       
         echo '<link rel="stylesheet" href="Styles/nav.css">';
-        echo '<link rel="stylesheet" href="Styles/prod.css">';
+        echo '<link rel="stylesheet" href="Styles/forms.css">';
   ?>
 
-    <title>Timbuktu | Products</title>
+    <title>Timbuktu | Contact Us</title>
 </head>
 <body>
-        <!-- NavBar -->    
-        <nav class="navbar navbar-expand-lg bg-dark">
+
+
+<!-- NavBar -->    
+<nav class="navbar navbar-expand-lg">
             <div class="container-fluid me-5">
                 <a class="navbar-brand ms-5" href="index.php"><span style="color:#FA79DF;">TIM</span>BUKTU</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,7 +43,7 @@ $username = $_SESSION["username"];
                                 <a class="nav-link" href="#">Pricing</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="contact.php">Contact Us</a>
+                                <a class="nav-link active" href="contact.php">Contact Us</a>
                             </li>
                         </ul>
                     </div>
@@ -76,91 +74,32 @@ $username = $_SESSION["username"];
 
             </div>
         </nav>
-
-
-<div class="w-100 top-info">
     
-</div>
-       
-        <form action="search.php" method="POST" autocomplete="off">
-          <div class="mt-5 mb-5">
-            <input type="text" class="form-control" id="prod-search" name="prod-search" placeholder="Search Computers and Accessories">
-            <input type="hidden" name="category" value="Computers">
-            <input type="hidden" name="category2" value="Accessories">
+
+<div class="head">
+                  <h1>Contact Us</h1>
+              </div>  
+                
+      <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" autocomplete="off">
+          <div class="row oneform" id="contact-form">
+              <div class="form-floating mb-3">
+                  <input type="email" class="form-control" name="useremail" id="useremail" placeholder="name@example.com">
+                  <label for="useremail">Email</label>
+              </div>
+              <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="subject" name="subject" placeholder="Password">
+                  <label for="message">Subject</label>
+              </div>
+              <div class="form-floating mb-3">
+                  <textarea class="form-control" id="message" name="message" placeholder="Password">
+                    </textarea>
+                  <label for="message">Message</label>
+              </div>
+              <input type="submit" tabindex="-1" role="button" class="btn" tabindex="-1" value="Send Message">
           </div>
+
         </form>
 
-    <div class="row ms-5 ps-5 prod">
-        <div class="col-4 col-md-2 filters">
-            
-        </div>
-        <div class="col-8 products">
-            <div class=" row mb-5">
-
-            
-
-            <?php
-
-                
-                require 'connection.php';
-              
-                // connect to database
-                $conn = Connect();
-                $sql = "SELECT * FROM products_tbl WHERE category = 'Computers' OR category = 'Accessories'";
-
-                $result = $conn->query($sql);
-
-                if ($result->num_rows > 0) {
-                    // output data of each row
-                    while($row = $result->fetch_assoc()) {
-                        $prod_id = $row["productID"];
-                        $prod_name = $row["name"];
-                        $prod_price = $row["price"];
-                        $image_path = $row["image_url"];
-                        $user_id = 301;
-
-                        
-                        $productcard = '<div class="card col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 ms-4 mb-3">
-                                            <img src="Images/' . $image_path . '" class="card-img-top" alt="...">
-                                            <div class="card-body">
-                                                <a class="" href="#" style="text-decoration:none;">
-                                                    <h5 class="card-title">' . $prod_name . '</h5>
-                                                </a> 
-                                                <p class="card-text"> <strong>$' . $prod_price . '</strong></p>
-                                                <a href="#" class="btn btn-light">Add to Cart</a>
-                                                <a href="cart.php?user_id=<?php echo $user_id; ?>" class="btn2 btn btn-light">Buy Now</a>
-
-                                            </div>
-                                        </div>';
-                                        
-                        echo $productcard;
-                    }
-                } else {
-                    echo "No results found.";
-                }
-
-                // close database connection
-                $conn->close();
-             ?>
-                
-            </div>
-        </div>
-    </div>
-
-
-    
-
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-
-
-<script>
-    function setProductId(id) {
-    document.getElementById('product_id').value = id;
-}
-</script>
 
 </body>
 </html>
