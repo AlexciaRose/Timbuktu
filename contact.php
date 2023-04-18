@@ -96,7 +96,7 @@
                   <label for="message">Message</label>
               </div>
               <input type="submit" tabindex="-1" role="button" class="btn" tabindex="-1" value="Send Message" name="send">
-              <button type="submit" name = "send"> Send</button>
+              
           </div>
 
         </form>
