@@ -63,11 +63,11 @@ if(isset($_SESSION["username"]) && !empty($_SESSION["username"])){
         $stmt->execute();
     }
 
-    header("Location: {$_SERVER['HTTP_REFERER']}");
+   
     // Close statement and connection
     $stmt->close();
     $conn->close();
-
+    header('Location: http://localhost/Timbuktu/cart.php');
 
 
 
