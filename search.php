@@ -14,7 +14,7 @@
         echo '<link rel="stylesheet" href="Styles/prod.css">';
   ?>
 
-    <title>Timbuktu | Products</title>
+    <title>Timbuktu | Search Results</title>
 </head>
 <body>
         <!-- NavBar -->    
@@ -31,7 +31,7 @@
                             <a class="nav-link" href="#">About Us</a>
                             </li>
                             <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="catalogue.php">Catalogue</a>
+                            <a class="nav-link" href="catalogue.php">Catalogue</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Customers</a>
@@ -52,8 +52,7 @@
                             </a>                           
                         </span>
                         <span>
-                        <a href="cart.php"><i title="Check Cart" class="bi bi-cart me-4" style="color:white; font-size: 1.5rem;"></i></a>
-                    
+                        <i class="bi bi-cart me-4" style="color:white; font-size: 1.5rem;"></i>
                         </span>
                         <span>
                        <a href="login.php"><i title="Log In/Create Account" class="bi bi-person-fill me-5" style="color:white; font-size: 1.5rem;"></i></a> 
@@ -63,8 +62,6 @@
                 </div> 
 
                 <?php include 'modal-search.php'; ?>
-                
-
 
             </div>
         </nav>
@@ -74,13 +71,7 @@
     
 </div>
        
-        <form action="search.php" method="POST" autocomplete="off">
-          <div class="mt-5 mb-5">
-            <input type="text" class="form-control" id="prod-search" name="prod-search" placeholder="Search Computers and Accessories">
-            <input type="hidden" name="category" value="Computers">
-            <input type="hidden" name="category2" value="Accessories">
-          </div>
-        </form>
+        
 
     <div class="row ms-5 ps-5 prod">
         <div class="col-4 col-md-2 filters">
@@ -89,57 +80,77 @@
         <div class="col-8 products">
             <div class=" row mb-5">
 
-            
+           
+            <?php include 'modal-product.php'; ?>
 
-            <?php
+                <?php
 
-                
                 require 'connection.php';
-              
+
                 // connect to database
                 $conn = Connect();
-                $sql = "SELECT * FROM products_tbl WHERE category = 'Computers' OR category = 'Accessories'";
 
-                $result = $conn->query($sql);
+                // Get the search parameters from the form data
+                $search = $_POST['prod-search'];
+                $category = $_POST['category'];
+                $category2 = $_POST['category2'];
 
-                if ($result->num_rows > 0) {
-                    // output data of each row
-                    while($row = $result->fetch_assoc()) {
-                        $prod_id = $row["productID"];
+                // Construct the SQL query based on the search parameters
+                $sql = "SELECT * FROM products_tbl WHERE name LIKE '%$search%' OR keywords LIKE '%$search%'";
+
+
+                if (!empty($category) && empty($category2)) {
+                    $sql .= " AND category = '$category'";
+                } elseif (empty($category) && !empty($category2)) {
+                    $sql .= " AND category = '$category2'";
+                } elseif (!empty($category) && !empty($category2)) {
+                    $sql .= " AND (category = '$category' OR category = '$category2')";
+                }
+
+
+
+                // Execute the SQL query
+                $result = mysqli_query($conn, $sql);
+
+                // Display the search results
+                if (mysqli_num_rows($result) > 0) {
+                    $heading = '<h2 class="mb-5"> <span style="font-size:25px; font-weight:lighter; color:pink;">Found What You Were Looking For?</span> <br> '.$search.' </span></h2>';
+                    echo $heading;
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        // Display the product information
                         $prod_name = $row["name"];
                         $prod_price = $row["price"];
                         $image_path = $row["image_url"];
-                        $user_id = 301;
 
-                        
+
                         $productcard = '<div class="card col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 ms-4 mb-3">
                                             <img src="Images/' . $image_path . '" class="card-img-top" alt="...">
                                             <div class="card-body">
-                                                <a class="" href="#" style="text-decoration:none;">
+                                                <a class="" href="#" style="text-decoration:none;" data-bs-toggle="modal" data-bs-target="#productModal">
                                                     <h5 class="card-title">' . $prod_name . '</h5>
                                                 </a> 
-                                                <p class="card-text"> <strong>$' . $prod_price . '</strong></p>
+                                            <p class="card-text"> <strong>$' . $prod_price . '</strong></p>
                                                 <a href="#" class="btn btn-light">Add to Cart</a>
-                                                <a href="cart.php?user_id=<?php echo "$user_id"?>" class="btn2 btn btn-light">Buy Now</a>
+                                                <a href="#" class="btn2 btn btn-light">Buy Now</a>
                                             </div>
                                         </div>';
-                                        
-                        echo $productcard;
-                    }
-                } else {
-                    echo "No results found.";
-                }
 
-                // close database connection
-                $conn->close();
-             ?>
+                    
+                    echo $productcard;
+                    }
+                        } else {
+                            $noresults = '<h2 class="mb-5"> <span style="font-size:25px; font-weight:lighter; color:pink;">We Did Not Find What You Were Looking For:</span> <br> '.$search.' </span></h2>';
+                            echo $noresults;
+                        }
+                         // close database connection
+                     $conn->close();
+                ?>
+
+
                 
             </div>
         </div>
     </div>
-
-
-    
 
 
 
@@ -147,11 +158,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
 
-<script>
-    function setProductId(id) {
-    document.getElementById('product_id').value = id;
-}
-</script>
-
 </body>
 </html>
+
+

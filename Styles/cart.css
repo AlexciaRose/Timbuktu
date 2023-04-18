@@ -1,0 +1,77 @@
+@font-face {
+    font-family: "Exo";
+    src: url(../Fonts/Exo/Exo-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: "Martel";
+    src: url(../Fonts/Martel/MartelSans-Regular.ttf);
+}
+
+body{
+    background-color: white;
+    
+}
+
+.heading{
+    font-size: 100px;
+    text-align: center;
+    width: auto;
+    font-family: 'Exo';
+    font-weight: bold;
+    margin-top: 10px;
+    letter-spacing: 5px;
+    background-clip: text; -webkit-background-clip: text; 
+    color: transparent; 
+    background-image: linear-gradient(to right, #FFFFFF, #A1A1A1);
+    position: relative;
+   
+}
+
+.box{
+    margin-top: 100px;
+    color: black;
+}
+
+.card{
+    border-left: none;
+    border-right: none;
+    padding: 0%;
+    border-radius: 0%;
+    padding-bottom: 30px;
+    margin-top: 30px;
+}
+
+.card-text {
+    margin-top: 3rem; 
+  }
+
+h6{
+    font-size: 30px;
+    font-weight: lighter;
+}
+
+.btn-delete{
+    width: 1rem;
+}
+
+.checkout{
+    background-color: rgba(228, 228, 228, 0.393);
+}
+
+.checkout .card-text{
+    margin-top: 0%;
+}
+
+.checkout .btn{
+    background-color: black;
+    font-family: 'Martel';
+    font-weight: bolder;
+    margin-top: 50px;
+    border-radius: 25px;
+    height: 50px;
+    padding-top: 12px;
+    padding-left: auto;
+    color: white;
+    width: 100%;
+}
